@@ -1,4 +1,4 @@
-import React,  { Compononet } from 'react';
+import React,  { Component } from 'react';
 
 class Task extends Component {
   render(){
