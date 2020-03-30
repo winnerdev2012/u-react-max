@@ -20,6 +20,7 @@ const app = (props) => {
   const switchNameHandler = () => {
     console.log('personsState: ', personsState)  
     console.log('hometowns: ', hometowns)  
+
     setPersonsState({
       persons: [
         {name: 'Maximillian', age: 28, hometown: 'Munich'},
@@ -34,6 +35,12 @@ const app = (props) => {
     })
   }
 
+  const nameBackgroundHandler = (event) => {
+    console.log('event.target: ', event.target)
+    event.target.classList.add('tasks')
+  }
+
+
   return (
     <div className="App">
       <h1>Hi, I'm a React App</h1>
@@ -41,17 +48,20 @@ const app = (props) => {
       <Person 
         name={personsState.persons[0].name} 
         age={personsState.persons[0].age} 
-        hometown={personsState.hometowns[0].name} 
+        hometown={personsState.hometowns[0].name}
+        onClick={nameBackgroundHandler}
         />
       <Person 
         name={personsState.persons[1].name} 
         age={personsState.persons[1].age} 
         hometown={hometowns[1].name} 
+        onClick={nameBackgroundHandler}
         />
       <Person 
         name={personsState.persons[2].name} 
         age={personsState.persons[2].age} 
         hometown={personsState.hometowns[2].name} 
+        onClick={nameBackgroundHandler}
       />
     </div>
   );
