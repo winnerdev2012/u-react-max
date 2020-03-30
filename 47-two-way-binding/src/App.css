@@ -13,3 +13,8 @@
   background-color: rgb(197, 193, 193);
   width: 75%;
 }
+
+
+button:hover {
+  background-color: rgb(161, 234, 236);
+}
