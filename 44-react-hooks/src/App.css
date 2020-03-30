@@ -4,7 +4,9 @@
 
 .tasks {
   align-content: center;
-  border: 2px solid gold;
+  border: 2px solid rgb(145, 125, 14);
+  border-radius: 11px;
+  width: 200px;
 }
 
 .subTask {

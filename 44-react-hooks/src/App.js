@@ -17,13 +17,16 @@ const app = (props) => {
   })
 
   const [hometowns, setHometowns] = useState(personsState.hometowns)
-  const switchNameHandler = () => {
+
+  const switchNameHandler = (newName) => {
     console.log('personsState: ', personsState)  
     console.log('hometowns: ', hometowns)  
 
+    newName ? newName : newName = 'Bill';
+
     setPersonsState({
       persons: [
-        {name: 'Maximillian', age: 28, hometown: 'Munich'},
+        {name: newName, age: 28, hometown: 'Munich'},
         {name: 'Manu', age: 29, hometown: 'Paris'},
         {name: 'Stephanie', age: 27, hometown: 'Vienna'}
       ],
@@ -44,7 +47,9 @@ const app = (props) => {
   return (
     <div className="App">
       <h1>Hi, I'm a React App</h1>
-      <button onClick={switchNameHandler}>Switch Name</button>
+      <button onClick={switchNameHandler.bind(this, null)}>Switch Name</button>
+      <button onClick={() => switchNameHandler('Penelope')}>Switch Penelope</button>
+      <button onClick={switchNameHandler.bind(this, 'Mortimer')}>Switch Mortimer</button>
       <Person 
         name={personsState.persons[0].name} 
         age={personsState.persons[0].age} 
