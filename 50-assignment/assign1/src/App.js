@@ -31,7 +31,7 @@ class App extends Component {
         <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
       </ol>
 
-      <UserInput onChange={this.nameHandler.bind(this)}/>
+      <UserInput onChange={this.nameHandler}/>
       <hr />
       <hr />
       <UserOutput namechanger={this.state.username} />

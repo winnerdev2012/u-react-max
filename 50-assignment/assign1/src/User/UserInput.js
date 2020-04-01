@@ -5,8 +5,8 @@ const Userinput = (props) => {
   return (
     <input 
       type='text' 
-      placeholder='enter username here' 
-      onChange={props.namechanger}/>
+      value={props.username} 
+      onChange={props.namechanger.bind(this) }/>
   )
 }
 
