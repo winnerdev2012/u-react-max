@@ -1,12 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import UserInput from './User/UserInput';
+import UserOutput from './User/UserOutput';
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
+  state = {
+    username: 'Peter Pan'
+  }
+
+  nameHandler = (name) => {
+    this.setState({
+      username: name
+    })
+  }
+
+  render (){
+
+    return (
+      <div className="App">
       <ol>
-      <li>Create TWO new components: UserInput and UserOutput</li>
+        <li>Create TWO new components: UserInput and UserOutput</li>
         <li>UserInput should hold an input element, UserOutput two paragraphs</li>
         <li>Output multiple UserOutput components in the App component (any paragraph texts of your choice)</li>
         <li>Pass a username (of your choice) to UserOutput via props and display it there</li>
@@ -17,8 +30,14 @@ function App() {
         <li>Add two-way-binding to your input (in UserInput) to also display the starting username</li>
         <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
       </ol>
+
+      <UserInput onChange={this.nameHandler.bind(this)}/>
+      <hr />
+      <hr />
+      <UserOutput namechanger={this.state.username} />
     </div>
-  );
+    );
+  }
 }
 
 export default App;
