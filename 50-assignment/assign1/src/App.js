@@ -8,9 +8,10 @@ class App extends Component {
     username: 'Peter Pan'
   }
 
-  nameHandler = (name) => {
+  nameHandler = (event) => {
+    console.log(event.target.value)
     this.setState({
-      username: name
+      username: event.target.value
     })
   }
 
@@ -31,10 +32,10 @@ class App extends Component {
         <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
       </ol>
 
-      <UserInput onChange={this.nameHandler}/>
+      <UserInput changer={ () => this.nameHandler.bind(this) }/>
       <hr />
       <hr />
-      <UserOutput namechanger={this.state.username} />
+      <UserOutput username={this.state.username} />
     </div>
     );
   }
