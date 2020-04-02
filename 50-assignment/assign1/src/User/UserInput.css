@@ -1,0 +1,9 @@
+input {
+  background-color: rgb(194, 255, 214);
+  border: 2px solid green;
+  border-radius: 12px;
+  color: darkblue;
+  font-size: x-large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 15px;
+}
