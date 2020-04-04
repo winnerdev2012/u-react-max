@@ -72,18 +72,6 @@ class App extends Component {
         upcaser={this.nameUpcaser}
         titlecaser={this.titleCaser}
         />
-      <UserOutput 
-        username={this.state.username}
-        reverser={this.nameReverser}
-        upcaser={this.nameUpcaser}
-        titlecaser={this.titleCaser}
-        />
-      <UserOutput 
-        username={this.state.username}
-        reverser={this.nameReverser}
-        upcaser={this.nameUpcaser}
-        titlecaser={this.titleCaser}
-        />
     </div>
     );
   }

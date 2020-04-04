@@ -4,7 +4,7 @@
   box-shadow: 3px 3px rgb(130, 151, 123);
   padding: 5px;
   margin: auto auto 5px auto;
-  width: 50%;
+  width: 60;
 }
 
 p {
@@ -19,7 +19,11 @@ p {
 .buttonstyle {
   background-color: rgb(182, 231, 182);
   border-radius: 13px;
-  padding: 3px;
+  padding: 3px 0;
   margin-right: 10px;
   width: 100px;
+}
+
+.buttonrow {
+  padding: 5px;
 }
