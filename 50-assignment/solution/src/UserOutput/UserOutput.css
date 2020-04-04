@@ -19,7 +19,11 @@ p {
 .buttonstyle {
   background-color: rgb(182, 231, 182);
   border-radius: 13px;
-  padding: 3px;
+  padding: 3px 0;
   margin-right: 10px;
   width: 100px;
+}
+
+.buttonrow {
+  padding: 5px;
 }
