@@ -11,6 +11,9 @@ const UserOutput = (props) => {
         <button className="buttonstyle titlecaser" onClick={props.titlecaser}>TitleCase</button>
       </div>
       <p>Now is the time for all good men to come to the aid of their country.</p>
+      <p>Now is the time for all good men to come to the aid of their country.</p>
+      <p>Now is the time for all good men to come to the aid of their country.</p>
+      <p>Now is the time for all good men to come to the aid of their country.</p>
     </div>
   )
 }
