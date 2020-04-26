@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Spinner from './Spinner/Spinner';
 
 class App extends Component {
   state = {
@@ -16,6 +17,7 @@ class App extends Component {
   switchNameHandler = ( newName ) => {
     // console.log('Was clicked!');
     // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
+    // use setState({})
     this.setState( {
       persons: [
         { name: newName, age: 28 },
@@ -26,6 +28,7 @@ class App extends Component {
   }
 
   nameChangedHandler = ( event ) => {
+    
     this.setState( {
       persons: [
         { name: 'Max', age: 28 },
@@ -42,21 +45,23 @@ class App extends Component {
 
   render () {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'yellowgreen',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
       cursor: 'pointer'
     };
     
-    let persons = <p>No persons showing</p>;
+    // let persons = <p>No persons showing</p>;
+    let persons = <Spinner />;
     
     if ( this.state.showPersons ) {
       persons = (
         <div>
           <Person
             name={this.state.persons[0].name}
-            age={this.state.persons[0].age} />
+            age={this.state.persons[0].age} 
+            changed={this.nameChangedHandler} />
           <Person
             name={this.state.persons[1].name}
             age={this.state.persons[1].age}
@@ -64,7 +69,8 @@ class App extends Component {
             changed={this.nameChangedHandler} >My Hobbies: Racing</Person>
           <Person
             name={this.state.persons[2].name}
-            age={this.state.persons[2].age} />
+            age={this.state.persons[2].age}
+            changed={this.nameChangedHandler} />
         </div>
       );
     }
