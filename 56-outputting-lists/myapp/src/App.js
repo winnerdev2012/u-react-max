@@ -14,36 +14,36 @@ class App extends Component {
     showPersons: false
   }
 
-  switchNameHandler = ( newName ) => {
+  switchNameHandler = (newName) => {
     // console.log('Was clicked!');
     // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
     // use setState({})
-    this.setState( {
+    this.setState({
       persons: [
         { name: newName, age: 28 },
         { name: 'Manu', age: 29 },
         { name: 'Stephanie', age: 27 }
       ]
-    } )
+    })
   }
 
-  nameChangedHandler = ( event ) => {
-    
-    this.setState( {
+  nameChangedHandler = (event) => {
+
+    this.setState({
       persons: [
         { name: 'Max', age: 28 },
         { name: event.target.value, age: 29 },
         { name: 'Stephanie', age: 26 }
       ]
-    } )
+    })
   }
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState( { showPersons: !doesShow } );
+    this.setState({ showPersons: !doesShow });
   }
 
-  render () {
+  render() {
     const style = {
       backgroundColor: 'yellowgreen',
       font: 'inherit',
@@ -51,32 +51,27 @@ class App extends Component {
       padding: '8px',
       cursor: 'pointer'
     };
-    
+
     // let persons = <p>No persons showing</p>;
     let persons = <Spinner />;
-    
-    if ( this.state.showPersons ) {
+
+    if (this.state.showPersons) {
       persons = (
         <div>
-          <Person
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age} 
-            changed={this.nameChangedHandler} />
-          <Person
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}
-            click={this.switchNameHandler.bind( this, 'Max!' )}
-            changed={this.nameChangedHandler} >My Hobbies: Racing</Person>
-          <Person
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age}
-            changed={this.nameChangedHandler} />
+          {this.state.persons.map((person, index) => {
+            return (
+              <Person
+                key={index}
+                name={person.name}
+                age={person.age} />
+            )
+          })};
         </div>
-      );
+      )
     }
 
     return (
-      <div className="App">
+      <div className="App" >
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!</p>
         <button
