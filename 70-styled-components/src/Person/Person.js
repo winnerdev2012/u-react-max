@@ -12,15 +12,10 @@ const StyledDiv = styled.div`
 
     @media (min-width: 600px) {
         border: 4px solid #e90f1d;
-    }`
+    }
+    `
 
 const person = (props) => {
-    // const style1 = {
-    //     '@media (min-width: 500px)': {
-    //         border: '3px solid orange',
-    //         width: '350px'
-    //     }
-    // }
     return (
         <StyledDiv>
             <p onClick={props.click}>I'm {props.name} and I am {props.age} years old!</p>
