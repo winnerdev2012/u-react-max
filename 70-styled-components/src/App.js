@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
-import './App.css';
-import Person from './Person/Person';
 import Spinner from './Spinner/Spinner';
+import styled from 'styled-components'
+
+import Person from './Person/Person';
+import './App.css';
+
+const StyledButton = styled.button`
+  background-color: lightblue;
+  color: ligthgray;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: salmon;
+    color: #FFF;
+  }
+  `
+
 class App extends Component {
   state = {
     persons: [
@@ -15,13 +32,6 @@ class App extends Component {
 
   deletePersonHandler = (index) => {
     const persons = [...this.state.persons.slice(0, index), ...this.state.persons.slice(index + 1, this.state.persons.length)]
-    // const persons = [...this.state.persons.splice(index + 1)]
-    // const persons = this.state.persons.splice(index + 1) // mutates reference object directly
-    // const persons = this.state.persons.slice() // creates a copy
-    // let persons = [...this.state.persons] // another copy method
-    // persons = persons.splice(index + 1) // another copy method
-    // always update state via a copy, mutating the copy and then using setState()
-    // const persons = [...this.state.persons.slice(index + 1)]
     this.setState({
       persons: persons
     })
@@ -46,22 +56,7 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-    };
-
-    // let persons = <p>No persons showing</p>;
     let persons = <Spinner />;
-
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -77,13 +72,15 @@ class App extends Component {
           })}
         </div>
       )
+      // how does styled components deal with dynamic css?
 
-      style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      }
-
+      // StyledButton`
+      // style.backgroundColor = 'red';
+      // style[':hover'] = {
+      //   backgroundColor: 'salmon',
+      //   color: 'black'
+      // }
+      // `
     }
     let classes = []
 
@@ -99,9 +96,7 @@ class App extends Component {
       <div className="App" >
         <h1>Hi, I'm a React App</h1>
         <p className={classes.join(' ')}>This is really working!</p>
-        <button
-          style={style}
-          onClick={this.togglePersonsHandler}>Toggle Persons</button>
+        <StyledButton onClick={this.togglePersonsHandler}>Toggle Persons</StyledButton>
         {persons}
       </div>
     )
