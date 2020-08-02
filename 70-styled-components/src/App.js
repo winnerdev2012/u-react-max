@@ -6,16 +6,16 @@ import Person from './Person/Person';
 import './App.css';
 
 const StyledButton = styled.button`
-  background-color: lightblue;
-  color: ligthgray;
+  background-color: ${props => props.alt ? 'red' : 'green'};
+  color: white;
   font: inherit;
   border: 1px solid blue;
-  padding: 10px;
+  padding: 8px;
   cursor: pointer;
 
   &:hover {
-    background-color: salmon;
-    color: #FFF;
+    background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
+    color: black;
   }
   `
 
@@ -72,7 +72,7 @@ class App extends Component {
           })}
         </div>
       )
-      // how does styled components deal with dynamic css?
+      // how does styled components deal with conditional ?
 
       // StyledButton`
       // style.backgroundColor = 'red';
@@ -96,7 +96,8 @@ class App extends Component {
       <div className="App" >
         <h1>Hi, I'm a React App</h1>
         <p className={classes.join(' ')}>This is really working!</p>
-        <StyledButton onClick={this.togglePersonsHandler}>Toggle Persons</StyledButton>
+        {/* StyledButton can receive props: ex. alt  ( name doesn't matter ) */}
+        <StyledButton alt={this.state.showPersons ? 1 : 0} onClick={this.togglePersonsHandler}>Toggle Persons</StyledButton>
         {persons}
       </div>
     )
