@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Spinner from './Spinner/Spinner';
 import Person from './Person/Person';
-import './App.css';
+import classes from './App.module.css';
 
 class App extends Component {
   state = {
@@ -57,21 +57,21 @@ class App extends Component {
         </div>
       )
     }
-    let classes = []
+    let assignedClasses = []
 
     if (this.state.persons.length <= 2) {
-      classes.push('red')
+      assignedClasses.push('red')
     }
 
     if (this.state.persons.length <= 1) {
-      classes.push('bold')
+      assignedClasses.push('bold')
     }
 
     return (
-      <div className="App" >
+      <div className={classes.App} >
         <h1>Hi, I'm a React App</h1>
-        <p className={classes.join(' ')}>This is really working!</p>
-        <button className="button" onClick={this.togglePersonsHandler}>Toggle Persons</button>
+        <p className={assignedClasses.join(' ')}>This is really working!</p>
+        <button className={classes.button} onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
       </div>
     )
