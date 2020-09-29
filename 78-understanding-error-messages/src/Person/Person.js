@@ -8,6 +8,7 @@ const person = (props) => {
       <p>{props.children}</p>
       <input type="text" onChange={props.changed} defaultValue={props.name} />
       <input type="submit" onSubmit={props.submit}></input>
+      <button>Fake Button</button>
     </div>
   )
 }
