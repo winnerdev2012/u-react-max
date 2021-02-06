@@ -5,9 +5,10 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      {name: 'Max', age: '28', hometown: 'Munich'},
-      {name: 'Manu', age: '29', hometown: 'Munich'},
-      {name: 'Stephanie', age: '26', hometown: 'Vienna'}
+      {name: 'Max', age: '28', pet: 'bird', hometown: 'Munich', hobbies: ['racing', 'swimming'], kids: 0 },
+      {name: 'Manu', age: '29', pet: 'cat', hometown: 'Munich', hobbies: ['cooking', 'running'], kids: 1 },
+      {name: 'Stephanie', age: '36', pet: 'dog', hometown: 'Vienna', hobbies: ['antiques collecting', 'cycling'], kids: 2 },
+      {name: 'George', age: '42', pet: 'fish', hometown: 'Vienna', hobbies: ['poker', 'hiking'], kids: 3 }
     ]
   }
 
@@ -16,22 +17,17 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <button>Switch Name</button>
-        <Person name='Max' age='28'>
-          <p>I am a code teacher</p>
-          <p>Hobbies: Hamburger restaurants</p>
-          <p>Pets: One small fish</p>
+        <Person person={this.state.persons[0]}><p>I have {this.state.persons[0].kids} kids.</p></Person>
+        <Person person={this.state.persons[1]} />
+        <Person person={this.state.persons[2]}>
+          <p>child content 1</p>
+          <p>child content 2</p>
+          <p>child content 3</p>
         </Person>
-
-        <Person name='Manu' age='27'>
-          <p>I am a climber</p>
-          <p>Hobbies: Sushi restaurants</p>
-          <p>Pets: Dog</p>
-        </Person>
-
-        <Person name='Stephanie' age='26'>
-          <p>I am a runner</p>
-          <p>Hobbies: Asian restaurants</p>
-          <p>Pets: A small frog</p>
+        <Person person={this.state.persons[3]}>
+          <p>child content 4</p>
+          <p>child content 5</p>
+          <p>child content 6</p>
         </Person>
       </div>
     );
