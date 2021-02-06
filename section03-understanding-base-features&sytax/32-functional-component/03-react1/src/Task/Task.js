@@ -4,8 +4,8 @@ import SubTask from './SubTask';
 class Task extends Component {
   render(){
 
-    const subTasks = this.props.subtasks.split(', ').map(t => {
-      return <SubTask subtitle = {t} />
+    const subTasks = this.props.subtasks.split(', ').map((t, i) => {
+      return <SubTask key={i} subtitle = {t} />
     })
 
     return (

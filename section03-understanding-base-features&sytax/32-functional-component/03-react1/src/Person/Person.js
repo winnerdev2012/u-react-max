@@ -1,11 +1,6 @@
 import React from 'react';
 
 const person = () => {
-  return (
-  <div>
-    <p>I'm a Person too</p>
-  </div>
-  )
-}
+  return <p>I'm a Person too</p>}
 
 export default person;
