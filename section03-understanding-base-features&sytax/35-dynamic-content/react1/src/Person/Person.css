@@ -1,0 +1,10 @@
+.person {
+  border: 1px solid gray;
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 0;
+}
+
+.hometown {
+  color: rgb(117, 104, 104);
+  font-weight: bold;
+}
