@@ -2,28 +2,68 @@ window.addEventListener('DOMContentLoaded', (event) => {
   console.log('index.js loaded ...')
 })
 
+// 1st way
+// class Human {
+//   constructor() {
+//     this.gender = 'male'
+//   }
 
+//   printGender() {
+//     console.log('gender: ', this.gender)
+//   }
+// }
+
+
+// 2nd way
 class Human {
-  constructor() {
-    this.gender = 'male'
-  }
+  // constructor() {
+  // this.gender = 'male'
+  gender = 'male'
+  // }
 
-  printGender() {
+  // printGender() {
+  printGender = () => {
     console.log('gender: ', this.gender)
   }
 }
 
+// 1st way
+// class Person extends Human {
+//   constructor(obj) {
+//     super() // here because we are using the constructor in a class that extends a superclass
+//     this.name = obj.name
+//     this.town = obj.town
+//     this.gender = obj.gender || this.gender
+//   }
+
+//   showPerson() {
+//     const mainDiv = document.querySelector('#main')
+//     mainDiv.innerHTML += (`<div>
+//     <h2>name: ${this.name}</h2>
+//     <p>town: ${this.town}</p>
+//     <p>gender: ${this.gender}</p>
+//     </div>`)
+//   }
+// }
+
+// 2nd way
 class Person extends Human {
   constructor(obj) {
     super() // here because we are using the constructor in a class that extends a superclass
+
     this.name = obj.name
+    // name = 'Ann'
+
     this.town = obj.town
-    // this.gender = 'trans'
-    // this.gender = obj.gender ? obj.gender : null;
+    // town = 'NY'
+
     this.gender = obj.gender || this.gender
+    // gender = 'female'
+
   }
 
-  showPerson() {
+  // showPerson() {
+  showPerson = () => {
     const mainDiv = document.querySelector('#main')
     mainDiv.innerHTML += (`<div>
     <h2>name: ${this.name}</h2>
