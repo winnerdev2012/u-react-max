@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   console.log('pointerPerson: ', pointerPerson)
   {name: 'Frank'}
 
-  // this makes a copy, because of spread operator
+  // this makes a true copy, because of spread operator
   // objects and arrays are reference types
   // to truly copy them, use spread operator
   const copiedPerson = {...person};
