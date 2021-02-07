@@ -12,30 +12,19 @@ class App extends Component {
   //   ]
   // }
 
-  state = {persons: People};
-
-
+  state = { persons: People };
 
   render() {
+
+    const renderedPersons = this.state.persons.map((person, index) => {
+      return <Person person={person} key={index} />
+    })
+
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <button>Switch Name</button>
-        
-        <Person person={this.state.persons[0]}>
-          <p>I have {this.state.persons[0].kids} kids.</p>
-        </Person>
-        
-        <Person person={this.state.persons[1]} />
-        
-        <Person person={this.state.persons[2]}>
-          <p>1st child content</p>
-          <p>2nd child content</p>
-          <p>3rd child content</p>
-          <p>4th child content</p>
-          <p>5th child content</p>
-          <p>6th child content</p>
-        </Person>
+        {renderedPersons}
       </div>
     );
   }

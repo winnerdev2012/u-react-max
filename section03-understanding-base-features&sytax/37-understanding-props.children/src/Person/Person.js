@@ -22,7 +22,8 @@ class person extends Component {
         <p>I have a pet {this.props.person.pet}</p>
         <p>My hobbies include: {this.props.person.hobbies.map(h => h).join(' ')}</p>
         <p>My hometown: <span className="hometown">{this.props.person.hometown}</span></p>
-        {personChildDiv}
+        {this.props.children ? this.props.children : <NoDataMsg />}
+        {personChildDiv} 
       </div>
     )
   }
