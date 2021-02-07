@@ -5,7 +5,7 @@ const person = (props) => {
 
   const children = props.children
   let secondChild = 'no data here';
-  children ? secondChild = props.children : null;
+  children ? secondChild = props.children[1] : null;
   
   // const getRandomAge = (ageMin, ageMax) => {
   //  return Math.floor(Math.random() * (ageMax - ageMin) + ageMin)
