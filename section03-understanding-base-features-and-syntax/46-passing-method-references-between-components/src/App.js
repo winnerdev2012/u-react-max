@@ -8,25 +8,48 @@ class App extends Component {
     people: People
   }
 
-  switchNameHandler = () => {
+  // switchNameHandler = () => {
+  //   console.log('was clicked')
+  //   const updatedNames = [{ ...this.state.people[0], name: 'MAXIMUM' },
+  //   { ...this.state.people[1], name: 'MANUMUM' },
+  //   { ...this.state.people[2], name: 'STEPHIEMUM' }]
+  //   this.state.people === People ? this.setState({ people: updatedNames }) : this.setState({ people: People })
+  // }
+
+  switchNameHandler = (name) => {
     console.log('was clicked')
-    const updatedNames = (
-      [{ ...this.state.people[0], name: 'MAXIMUM' },
-      { ...this.state.people[1], name: 'MANUMUM' },
-      { ...this.state.people[2], name: 'STEPHIEMUM' }]
-    )
-    this.state.people === People ? this.setState({ people: updatedNames }) : this.setState({ people: People})
+    const updatedNames = [{ ...this.state.people[0], name: name },
+    { ...this.state.people[1], name: 'MANUMUM' },
+    { ...this.state.people[2], name: 'STEPHIEMUM' }]
+    this.state.people === People ? this.setState({ people: updatedNames }) : this.setState({ people: People })
   }
 
-  render() {
+  // personSwitchDataHandler = (event) => {
+  //   let id = event.target.id
+  //   let updatedPerson = this.state.people[id]
+  //   updatedPerson.name = 'FRANK'
+  //   console.log('updatedPerson: ', updatedPerson)
 
-    const renderedPersons = this.state.people.map(person => {
+  //   this.setState({
+  //     persons: [...this.state.people, updatedPerson]
+  //   })
+  // }
+
+
+  render() {
+    const renderedPersons = this.state.people.map((person, index) => {
+      // const specialChange = this.switchNameHandler.bind(this, 'Max name bound to props.click')
+      const specialChange = () => this.switchNameHandler('Passed to anonymous function')
       return (
         <Person
           key={person.id}
           name={person.name}
           age={person.age}
           hometown={person.hometown}
+          personswitchdata={this.personSwitchDataHandler}
+          personId={index}
+          // click={this.switchNameHandler.bind(this, 'Max name bound to props.click')}
+          click={index === 0 ? specialChange : null}
         />
       )
     })
@@ -34,7 +57,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
+        {/* <button onClick={this.switchNameHandler.bind(this, 'Maximillian')}>Switch Data</button> */}
+        <button onClick={() => this.switchNameHandler('Thanks A Million!')}>Switch Data</button>
+
         {/* <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age} 
