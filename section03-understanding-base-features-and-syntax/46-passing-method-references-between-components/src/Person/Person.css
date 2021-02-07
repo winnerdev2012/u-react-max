@@ -1,0 +1,10 @@
+.person-switch-data {
+  border: 1px dashed green;
+  border-radius: 12px;
+}
+
+h3:hover {
+  background-color: rgb(205, 230, 176);
+  cursor: pointer;
+  transition: background-color .5s;
+}
