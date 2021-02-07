@@ -3,9 +3,7 @@ import React from 'react';
 const person = (props) => {
   return (
     <div>
-      <p onClick={props.onClick}>My name is {props.name} and I am {props.age} years old.</p>
-      <p>My hometown is: {props.hometown}</p>
-      {props.children}
+      <p onClick={props.person.onClick}>My name is {props.person.name} and I am {props.person.age} years old.</p>
     </div>
   )
 }
