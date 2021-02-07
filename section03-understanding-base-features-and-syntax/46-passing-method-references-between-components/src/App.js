@@ -38,7 +38,10 @@ class App extends Component {
 
   render() {
     const renderedPersons = this.state.people.map((person, index) => {
+      // recommended to use .bind
       // const specialChange = this.switchNameHandler.bind(this, 'Max name bound to props.click')
+
+      // can use this, but can be inefficient, React might start rendering things too often in a large app
       const specialChange = () => this.switchNameHandler('Passed to anonymous function')
       return (
         <Person
