@@ -1,75 +1,60 @@
+// import React, { Component } from 'react';
 import React, { useState } from 'react';
-import './App.css';
+import './App.css'
 import Person from './Person/Person';
 
-const app = (props) => {
-  const [personsState, setPersonsState] = useState({
+const App = props => {
+
+  const [theState, setTheState] = useState({
     persons: [
-      {name: 'Max', age: 28},
-      {name: 'Manu', age: 29},
-      {name: 'Stephanie', age: 26}
+      { name: 'Max', age: 29 },
+      { name: 'Manu', age: 27 },
+      { name: 'Stephanie', age: 26 }
     ],
-    hometowns: [
-      {name: 'Munich'}, 
-      {name: 'Boston'}, 
-      {name: 'New York'}
-    ]
+    otherState: 'something else'
+  })
+  
+  console.log('theState: ', theState)
+
+  const addCharlieBrown = () => {
+    setTheState({ persons: [...theState.persons, { name: 'Charlie Brown', age: 8 }] })
+  }
+
+  const renderedPersons = theState.persons.map((person, index) => {
+    return <Person person={person} key={index} />
   })
 
-  const [hometowns, setHometowns] = useState(personsState.hometowns)
+  const switchNameHandler = () => {
+    console.log('was clicked')
 
-  const switchNameHandler = (newName) => {
-    console.log('personsState: ', personsState)  
-    console.log('hometowns: ', hometowns)  
+    const stateOriginal = [
+      { name: 'Max', age: 29 },
+      { name: 'Manu', age: 27 },
+      { name: 'Stephanie', age: 26 }
+    ]
 
-    newName ? newName : newName = 'Bill';
+    const stateUpdated = [
+      { ...theState.persons[0], name: 'MAXIMUM', age: 44 },
+      { ...theState.persons[1], name: 'MANUMUM', age: 65 },
+      { ...theState.persons[2], name: 'STEPHIEMUM', age: 33 }
+    ]
 
-    setPersonsState({
-      persons: [
-        {name: newName, age: 28, hometown: 'Munich'},
-        {name: 'Manu', age: 29, hometown: 'Paris'},
-        {name: 'Stephanie', age: 27, hometown: 'Vienna'}
-      ],
-      hometowns: [
-        {name: 'Brussels'}, 
-        {name: 'San Paolo'}, 
-        {name: 'Miami'}
-      ]
-    })
+    if (theState.persons[0].name === 'Max') {
+      setTheState({ persons: stateUpdated, otherState: theState.otherState })
+    } else {
+      setTheState({ persons: stateOriginal, otherState: theState.otherState  })
+    }
   }
-
-  const nameBackgroundHandler = (event) => {
-    console.log('event.target: ', event.target)
-    event.target.classList.add('tasks')
-  }
-
 
   return (
     <div className="App">
       <h1>Hi, I'm a React App</h1>
-      <button onClick={switchNameHandler.bind(this, null)}>Switch Name</button>
-      <button onClick={() => switchNameHandler('Penelope')}>Switch Penelope</button>
-      <button onClick={switchNameHandler.bind(this, 'Mortimer')}>Switch Mortimer</button>
-      <Person 
-        name={personsState.persons[0].name} 
-        age={personsState.persons[0].age} 
-        hometown={personsState.hometowns[0].name}
-        onClick={nameBackgroundHandler}
-        />
-      <Person 
-        name={personsState.persons[1].name} 
-        age={personsState.persons[1].age} 
-        hometown={hometowns[1].name} 
-        onClick={nameBackgroundHandler}
-        />
-      <Person 
-        name={personsState.persons[2].name} 
-        age={personsState.persons[2].age} 
-        hometown={personsState.hometowns[2].name} 
-        onClick={nameBackgroundHandler}
-      />
+      <p>This is really working</p>
+      <button onClick={addCharlieBrown}>Add Charlie Brown</button>
+      <button onClick={switchNameHandler}>Switch Names</button>
+      {renderedPersons}
     </div>
-  );
+  )
 }
 
-export default app;
+export default App;
