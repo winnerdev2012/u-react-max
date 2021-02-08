@@ -4,9 +4,14 @@ import './UserInput.css';
 const Userinput = (props) => {
 
   return (
-    <input 
-      type='text' 
-      onChange={props.changer()}/>
+    <div>
+      <h2>enter username</h2>
+      <input 
+        type='text' 
+        onChange={props.changer()}
+        defaultValue={props.username}
+        />
+    </div>
   )
 }
 

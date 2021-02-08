@@ -35,6 +35,8 @@ const App = (props) => {
   }
   
   const style = {
+    backgroundColor: 'light-blue',
+    borderRadius: '6px', 
     font: 'inherit',
     border: '1px solid blue',
     padding: '8px',

@@ -5,7 +5,7 @@ import UserOutput from './User/UserOutput';
 
 class App extends Component {
   state = {
-    username: 'Peter Pan'
+    username: 'enter username'
   }
 
   nameHandler = (event) => {
@@ -32,9 +32,11 @@ class App extends Component {
         <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
       </ol>
 
+      <hr />
+      <hr />
       <UserInput changer={ () => this.nameHandler.bind(this) }/>
-      <hr />
-      <hr />
+      <UserOutput username={this.state.username} />
+      <UserOutput username={this.state.username} />
       <UserOutput username={this.state.username} />
     </div>
     );
