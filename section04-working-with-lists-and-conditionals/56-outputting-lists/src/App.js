@@ -59,12 +59,10 @@ class App extends Component {
       persons = (
         <div>
           {this.state.persons.map((person, index) => {
-            return (
-              <Person
-                key={index}
-                name={person.name}
-                age={person.age} />
-            )
+            return <Person
+              key={index}
+              name={person.name}
+              age={person.age} />
           })};
         </div>
       )
