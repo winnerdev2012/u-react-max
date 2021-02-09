@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+input {
+  border: 1px solid gray;
+  margin: 3rem;
+}
+
+.results {
+  background: lightgray;
+  border: 1px solid black;
+  border-radius: 9px;
+  width: 150px;
+  margin: auto;
+}
+
+.results-length {
+  background: white;
+  border-radius: 12px;
+  color: red;
+  font-size: large;
+  font-weight: bold;
+  width: 2rem;
+  padding: .5rem;
+  margin: auto;
+
+}
