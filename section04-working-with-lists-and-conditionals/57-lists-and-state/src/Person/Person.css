@@ -6,3 +6,9 @@
     padding: 16px;
     text-align: center;
 }
+
+.PersonTitle:hover {
+    background: rgb(251, 202, 202);
+    border: 1px solid red;
+    cursor: pointer;
+}
