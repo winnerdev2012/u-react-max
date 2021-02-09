@@ -41,8 +41,11 @@ class App extends Component {
   }
 
   togglePersonsHandler = () => {
-    const doesShow = this.state.showPersons;
-    this.setState({ showPersons: !doesShow });
+    // const doesShow = this.state.showPersons;
+    // this.setState({ showPersons: !doesShow });
+
+    this.state.showPersons === true ? this.setState({ showPersons: false }) : this.setState({ showPersons: true });
+
   }
 
   render() {
@@ -56,11 +59,19 @@ class App extends Component {
 
     let persons = <p>No persons showing</p>;
 
-    if (this.state.showPersons) {
+    // if (this.state.showPersons) {
+    //   persons = <PersonsIndex
+    //     persons={this.state.persons}
+    //     switch={this.switchNameHandler}
+    //     change={this.nameChangedHandler} />
+    // }
+
+    { this.state.showPersons ?
       persons = <PersonsIndex
         persons={this.state.persons}
         switch={this.switchNameHandler}
         change={this.nameChangedHandler} />
+      : null
     }
 
     return (
