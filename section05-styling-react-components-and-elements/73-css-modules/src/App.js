@@ -41,6 +41,8 @@ class App extends Component {
 
   render() {
     let persons = <Spinner />;
+    let btnClasses = ''
+
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -55,27 +57,27 @@ class App extends Component {
             )
           })}
         </div>
-      )
+      );
+      btnClasses= classes.Red
     }
-    let assignedClasses = []
 
+    const assignedClasses = [];
     if (this.state.persons.length <= 2) {
-      assignedClasses.push('red')
+      assignedClasses.push(classes.Red)
     }
 
     if (this.state.persons.length <= 1) {
-      assignedClasses.push('bold')
+      assignedClasses.push(classes.Bold)
     }
 
     return (
       <div className={classes.App} >
         <h1>Hi, I'm a React App</h1>
         <p className={assignedClasses.join(' ')}>This is really working!</p>
-        <button className={classes.button} onClick={this.togglePersonsHandler}>Toggle Persons</button>
+        <button className={btnClasses} onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
       </div>
     )
-    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
