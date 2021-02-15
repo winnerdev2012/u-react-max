@@ -4,6 +4,22 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+  // super(props) executes the constructor of the component you are extending
+  // ensures things are initialized correctly
+  constructor(props){
+    super(props)
+    console.log('[App.js] constructor')
+    console.log('[App.js] props', props)
+    // console.log('[App.js] super(props)', super(props))
+    // can also set state here, i.e.  state = { persons: [], otherState: 'some value' }
+  
+    // this.state = {
+    //   asdf: 'asdf'
+    // }
+  
+  }
+
+  // this syntax for state, does all of the above for you, constructor, super(props)
   state = {
     persons: [
       { id: 'asfa1', name: 'Max', age: 28 },
@@ -13,6 +29,22 @@ class App extends Component {
     otherState: 'some other value',
     showPersons: false
   }
+
+  // think of static as a Class method, you are not calling it on an instance of this Class
+  // instead, the Class itself has this static method
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps => props:', props)
+    return state
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount')
+  }
+
+  // replaced by getDerivedStateFromProps
+  // componentWillMount() {
+  //   console.log('[App.js] componentWillMount')
+  // }
 
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
@@ -43,6 +75,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render')
     let persons = null;
     let cockpit = <Cockpit
       title={this.props.appTitle}
