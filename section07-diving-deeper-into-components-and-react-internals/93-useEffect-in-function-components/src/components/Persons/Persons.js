@@ -24,13 +24,7 @@ class Persons extends Component {
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log('[Persons.js] getSnapshotBeforeUpdate')
     // return null;
-    // a data 'package', where you return a snapshot here, and use it in componentDidUpate
     // a way to save some data before the update, and then use it afterwards
-    // ex: you might capture the coords of a scrolling condition so you could restore
-    // them after the DOM updates.
-    // https://stackoverflow.com/questions/53158796/get-scroll-position-with-reactjs
-
-    window.addEventListener('scroll', this.listenToScroll)
     return {message: 'Snapshot!'}
   }
   
@@ -38,7 +32,6 @@ class Persons extends Component {
   componentDidUpdate(prevProps, prevState, snapshot){
     console.log('[Persons.js] componentDidUpdate')
     console.log('[Persons.js] snapshot: ', snapshot)
-    window.removeEventListener('scroll', this.listenToScroll)
   }
 
   render() {
