@@ -11,34 +11,27 @@ class Persons extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log('[Persons.js] getDerivedStateFromProps')
-    console.log('[Persons.js] state: ', state)
+    // console.log('[Persons.js] getDerivedStateFromProps')
+    // console.log('[Persons.js] state: ', state)
     return state;
   }
   
   shouldComponentUpdate(nextProps, nextState){
-    console.log('[Persons.js] shouldComponentUpdate nextProps', nextProps)
+    // console.log('[Persons.js] shouldComponentUpdate nextProps', nextProps)
     return true;
   }
   
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log('[Persons.js] getSnapshotBeforeUpdate')
+    // console.log('[Persons.js] getSnapshotBeforeUpdate')
     // return null;
-    // a data 'package', where you return a snapshot here, and use it in componentDidUpate
     // a way to save some data before the update, and then use it afterwards
-    // ex: you might capture the coords of a scrolling condition so you could restore
-    // them after the DOM updates.
-    // https://stackoverflow.com/questions/53158796/get-scroll-position-with-reactjs
-
-    window.addEventListener('scroll', this.listenToScroll)
     return {message: 'Snapshot!'}
   }
   
   // a way to save some data before the update, and then use it afterwards
   componentDidUpdate(prevProps, prevState, snapshot){
-    console.log('[Persons.js] componentDidUpdate')
-    console.log('[Persons.js] snapshot: ', snapshot)
-    window.removeEventListener('scroll', this.listenToScroll)
+    // console.log('[Persons.js] componentDidUpdate')
+    // console.log('[Persons.js] snapshot: ', snapshot)
   }
 
   render() {
