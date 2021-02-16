@@ -3,7 +3,7 @@ import Person from './Person/Person';
 
 class Persons extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       asdf: 'asdf'
@@ -15,26 +15,30 @@ class Persons extends Component {
     // console.log('[Persons.js] state: ', state)
     return state;
   }
-  
-  shouldComponentUpdate(nextProps, nextState){
-    // console.log('[Persons.js] shouldComponentUpdate nextProps', nextProps)
-    return true;
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.persons !== this.props.persons) {
+      console.log('[Persons.js] shouldComponentUpdate nextProps', nextProps)
+      return true;
+    } else {
+      return false;
+    }
   }
-  
+
   getSnapshotBeforeUpdate(prevProps, prevState) {
     // console.log('[Persons.js] getSnapshotBeforeUpdate')
     // return null;
     // a way to save some data before the update, and then use it afterwards
-    return {message: 'Snapshot!'}
+    return { message: 'Snapshot!' }
   }
-  
+
   // a way to save some data before the update, and then use it afterwards
-  componentDidUpdate(prevProps, prevState, snapshot){
+  componentDidUpdate(prevProps, prevState, snapshot) {
     // console.log('[Persons.js] componentDidUpdate')
     // console.log('[Persons.js] snapshot: ', snapshot)
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     // any code you want to run right before the component is removed
     console.log('[Person.js] componentWillUnmount')
   }
