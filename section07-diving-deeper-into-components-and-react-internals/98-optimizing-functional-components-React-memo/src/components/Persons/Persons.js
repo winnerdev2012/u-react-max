@@ -1,58 +1,58 @@
 import React, { Component } from 'react';
+
 import Person from './Person/Person';
 
 class Persons extends Component {
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log('[Persons.js] getDerivedStateFromProps');
+  //   return state;
+  // }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      asdf: 'asdf'
-    }
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    // console.log('[Persons.js] getDerivedStateFromProps')
-    // console.log('[Persons.js] state: ', state)
-    return state;
-  }
+  // componentWillReceiveProps(props) {
+  //   console.log('[Persons.js] componentWillReceiveProps', props);
+  // }
 
   shouldComponentUpdate(nextProps, nextState) {
+    console.log('[Persons.js] shouldComponentUpdate');
     if (nextProps.persons !== this.props.persons) {
-      console.log('[Persons.js] shouldComponentUpdate nextProps', nextProps)
       return true;
     } else {
       return false;
     }
+    // return true;
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    // console.log('[Persons.js] getSnapshotBeforeUpdate')
-    // return null;
-    // a way to save some data before the update, and then use it afterwards
-    return { message: 'Snapshot!' }
+    console.log('[Persons.js] getSnapshotBeforeUpdate');
+    return { message: 'Snapshot!' };
   }
 
-  // a way to save some data before the update, and then use it afterwards
+  // componentWillUpdate() {
+
+  // }
+
   componentDidUpdate(prevProps, prevState, snapshot) {
-    // console.log('[Persons.js] componentDidUpdate')
-    // console.log('[Persons.js] snapshot: ', snapshot)
+    console.log('[Persons.js] componentDidUpdate');
+    console.log(snapshot);
   }
 
   componentWillUnmount() {
-    // any code you want to run right before the component is removed
-    console.log('[Person.js] componentWillUnmount')
+    console.log('[Persons.js] componentWillUnmount');
   }
 
   render() {
+    console.log('[Persons.js] rendering...');
     return this.props.persons.map((person, index) => {
-      return <Person
-        key={person.id}
-        index={index}
-        clicked={() => this.props.clicked(index)}
-        name={person.name}
-        age={person.age}
-        changed={(event) => this.props.changed(event, person.id)} />
-    })
+      return (
+        <Person
+          click={() => this.props.clicked(index)}
+          name={person.name}
+          age={person.age}
+          key={person.id}
+          changed={event => this.props.changed(event, person.id)}
+        />
+      );
+    });
   }
 }
 
