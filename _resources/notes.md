@@ -144,7 +144,52 @@ section06
 
 -
 -
--
+## section 07 wrap up resources links and downloads:
+[wrap up video](https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/13556352#questions)
 
--
--
+- More on useEffect(): https://reactjs.org/docs/hooks-effect.html
+- State & Lifecycle: https://reactjs.org/docs/state-and-lifecycle.html
+- PropTypes: https://reactjs.org/docs/typechecking-with-proptypes.html
+- Higher Order Components: https://reactjs.org/docs/higher-order-components.html
+- Refs: https://reactjs.org/docs/refs-and-the-dom.html
+
+
+## section 08 planning app structure
+
+- component tree
+- state
+- components vs containers
+- authentication
+- datanbase
+- deployment
+- mvp: minimum viable product, (and stages of mvp)
+
+### component tree for Burger Builder App
+
+goal: users can add ingredients to build a burger
+
+UI:
+__________________________________________________________________________________________
+    Logo                                             Burger Orders
+__________________________________________________________________________________________
+
+                      burger builder/viewing area
+                              _____________   
+                            /               \
+                            +++++++++++++++++
+                            =================
+                            -----------------
+                            \_______________/
+
+
+
+__________________________________________________________________________________________
+
+                      controls for building the burger
+
+                            meat          + - 
+                            salad         + - 
+                            cheese        + - 
+__________________________________________________________________________________________
+
+                          | CHECKOUT |
